@@ -24,6 +24,7 @@ public class BaseTest {
     }
     @AfterTest(description = "close all browser instance")
     public void tearDown() {
-        if (driver != null) WebBrowsers.quitWindow(driver);
+
+         WebBrowsers.quitWindow(driver);
     }
 }

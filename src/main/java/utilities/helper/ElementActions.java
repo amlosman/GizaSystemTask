@@ -8,22 +8,13 @@ import org.openqa.selenium.support.ui.Select;
 public class ElementActions {
 
     public static void clickOnElement(WebDriver driver, By locator) {
-        try {
-            ScrollingActions.scrollToFindElement(driver, locator);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         VerifyActions.isDisplayed(driver, locator);
         VerifyActions.isClickable(driver, locator);
         driver.findElement(locator).click();
     }
 
     public static void sendKeys(WebDriver driver, By locator, String keys) {
-        try {
-            ScrollingActions.scrollToFindElement(driver, locator);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
         VerifyActions.isClickable(driver, locator);
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(keys);
@@ -75,5 +66,17 @@ public class ElementActions {
         WebElement dropList = driver.findElement(locator);
         Select dropDown = new Select(dropList);
         dropDown.selectByValue(value);
+    }
+    public static String getPopSuccessText(WebDriver driver) {
+
+        try {
+            Thread.sleep(100);
+            return  driver.switchTo().alert().getText();
+
+        } catch (Exception e) {
+            System.out.println("No Alert displayed");
+        }
+        return null;
+
     }
 }

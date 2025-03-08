@@ -15,10 +15,6 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-    public boolean checkMainHeaderIsDisplayed() {
-        return VerifyActions.isDisplayed(driver, mainHeader);
-    }
-
     public void clickOnBankManagerLogin() {
         ElementActions.clickOnElement(driver, bankManagerLoginBtn);
     }

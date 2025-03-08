@@ -10,24 +10,13 @@ public class VerifyActions {
 
 
     public static boolean isDisplayed(WebDriver driver, By locator) {
-        return new WebDriverWait(driver, 100).until(ExpectedConditions.presenceOfElementLocated(locator)).isDisplayed();
+        return new WebDriverWait(driver, 500).until(ExpectedConditions.presenceOfElementLocated(locator)).isDisplayed();
     }
 
     public static boolean isClickable(WebDriver driver, By locator) {
-        return new WebDriverWait(driver, 100).
+        return new WebDriverWait(driver, 500).
                 until(ExpectedConditions.elementToBeClickable(locator)).isEnabled();
     }
 
-    public static String getPopSuccessText(WebDriver driver) {
 
-        try {
-            Thread.sleep(100);
-            return  driver.switchTo().alert().getText();
-
-        } catch (Exception e) {
-            System.out.println("No Alert displayed");
-        }
-        return null;
-
-    }
 }

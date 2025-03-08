@@ -22,7 +22,7 @@ public class APITests {
 
     @Test(description = "Validate can post  pet")
     public void createNewPet() {
-        JsonReader jsonReader = new JsonReader("src/test/resources/APiTestData.json.json");
+        JsonReader jsonReader = new JsonReader("src/test/resources/APiTestData.json");
         PetUtils.postPet(jsonReader.jsonObject);
     }
 
