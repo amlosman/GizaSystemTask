@@ -1,5 +1,4 @@
 package tests.gui;
-
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -51,11 +50,7 @@ public class LineManagerTests extends BaseTest {
         managerPage.clickOnCustomers();
         customerPage.sortByPostCode();
         Assert.assertTrue(customerPage.sortACS());
-        managerPage.clickOnOpenAccount();
-        managerPage.clickOnCustomers();
         customerPage.sortByPostCode();
-        customerPage.sortByPostCode();
-      //  Assert.assertTrue(customerPage.sortDES());
     }
 
     @Test(description = "Validate user can search by firstName", dependsOnMethods = "validateUserCanSortByPostcode")

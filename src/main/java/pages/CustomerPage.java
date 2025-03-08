@@ -13,7 +13,7 @@ import java.util.List;
 public class CustomerPage {
     WebDriver driver;
     By selectUser= By.id("userSelect");
-    By loginBtn= By.className("btn btn-default");
+    By loginBtn= By.xpath("//*[@type='submit']");
     By searchBox = By.xpath("//*[@type='text']");
     By accountRows = By.xpath("//tr[@ng-repeat=\"cust in Customers | orderBy:sortType:sortReverse | filter:searchCustomer\"]");
     By postCodeFilter= By.xpath("//*[contains(text(), 'Post Code')]");
@@ -22,9 +22,9 @@ public class CustomerPage {
     By welcomeMsg= By.xpath("//*[text()=' Welcome ']");
     By depositBtn= By.xpath("//*[contains(text(),'Deposit')]");
     By transactionsBtn= By.xpath("//*[contains(text(),'Transactions')]");
-    By amountValue= By.xpath("//*[@placeholder='amount']");
+    By amountValue= By.xpath("//*[@type='number']");
     By submit= By.xpath("//*[@type='submit']");
-    By successMsg=By.className("error ng-binding");
+    By successMsg=By.xpath("//*[@ng-show='message']");
     By transactionsTable = By.xpath("//tr");
     public CustomerPage(WebDriver driver){
         this.driver = driver;
@@ -99,9 +99,10 @@ public class CustomerPage {
         ElementActions.clickOnElement(driver,submit);
     }
     public String validateSuccessMsg(){
-       return ElementActions.getElementText(driver,successMsg);
+       return ElementActions.getElementText(driver, successMsg);
     }
     public boolean validateTransactionAdded(){
+        VerifyActions.isDisplayed(driver,transactionsTable);
         return driver.findElements(transactionsTable).size()>=2;
     }
 }

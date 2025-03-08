@@ -49,7 +49,7 @@ public class ManagerPage {
     }
 
     public String validatePopUpIsDisplayed() {
-        String text = VerifyActions.getPopSuccessText(driver);
+        String text = ElementActions.getPopSuccessText(driver);
         String[] texts = text.split(":");
         customerIndex.add(Integer.parseInt(texts[1]));
         return text;
@@ -86,7 +86,7 @@ public class ManagerPage {
     }
 
     public String getAddAccountMgs() {
-        String text = VerifyActions.getPopSuccessText(driver);
+        String text = ElementActions.getPopSuccessText(driver);
         String[] texts = text.split(":");
         accountNumber.add( Integer.parseInt(texts[1]));
         return text;
