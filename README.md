@@ -18,7 +18,27 @@
  Maven (for dependency management)
  
  TestNG (for test execution)
- 
+ ##### Project Structure 
+* Pages Package: this contains all pages as a class
+* Utilities Package: This package contains
+* Helper Package:
+
+    * ElementActions: To interact with an element
+    * ScrollingActions: To scroll in page
+    * VerifyAction: To verify actions
+    * WebBrowsers: To change the selected browser
+      
+* Readers Package: To read files
+* EndtPoint Package: To add Endpoint
+* APIUitilies Package: Contain
+
+    * RestHelper class
+    * EndPointUitiles class
+* allure.properties: Contian Allure config
+* base Package: contian set up and turn down for the driver
+* GUI Pagkage: Contain GUI Tests
+* API Pagkage: Contain API Tests
+* Recourse package: Contains test data files
  ##### Project Setup
  1. Clone the Repository
  Clone this repository to your local machine:
